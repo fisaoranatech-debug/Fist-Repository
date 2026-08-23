@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: playandchill_db
+    environment:
+      POSTGRES_USER: playandchill
+      POSTGRES_PASSWORD: playandchill_dev
+      POSTGRES_DB: playandchill_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - playandchill_network
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U playandchill']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  playandchill_network:
+    driver: bridge

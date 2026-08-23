@@ -1,0 +1,30 @@
+{
+  "$schema": "https://turbo.build/json-schema.json",
+  "globalDependencies": [
+    "**/.env",
+    "**/.env.*.local"
+  ],
+  "pipeline": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "build": {
+      "outputs": [
+        "dist/**",
+        ".next/**",
+        "build/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

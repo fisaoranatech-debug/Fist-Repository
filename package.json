@@ -1,0 +1,27 @@
+{
+  "name": "play-and-chill",
+  "version": "1.0.0",
+  "description": "PLAY & CHILL - Platform gaming complète avec réservations, tournois et boutique en ligne",
+  "private": true,
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "db:migrate": "cd apps/api && prisma migrate dev",
+    "db:studio": "cd apps/api && prisma studio",
+    "db:seed": "cd apps/api && prisma db seed",
+    "db:reset": "cd apps/api && prisma migrate reset --force",
+    "db:push": "cd apps/api && prisma db push"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "typescript": "^5.0.0",
+    "turbo": "^1.11.0"
+  }
+}
